@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.rotate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  animation: rotate 1.5s linear infinite;
+  margin-bottom: 10px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width:1400px) {
+  .rotate {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Premium Flight Overlay Styling --- */
+
+.space-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* Plane Multiplier (follows the WebGL plane) */
+.plane-multiplier {
+  position: absolute;
+  bottom: 85px; /* Adjust start position to align next to WebGL plane start */
+  left: 90px;
+  z-index: 10;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.95), 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    2px 2px 0px rgba(0, 0, 0, 1);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+/* Flew Away Screen overlay */
+.flew-away {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  z-index: 6;
+  font-size: 48px;
+  font-weight: 900;
+  color: #ff3333;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  text-transform: uppercase;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(30, 10, 10, 0.85);
+  padding: 10px 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 56, 56, 0.2);
+
+  &.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Star field */
+.star {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.8;
+  z-index: 2; /* Render stars on top of WebGL context */
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-400px) scale(1.5);
+    opacity: 0;
+  }
+}
