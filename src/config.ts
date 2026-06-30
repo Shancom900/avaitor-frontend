@@ -1,4 +1,7 @@
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_URL = 
+  window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:5000"
+    : "https://avaitor-bcend.onrender.com";
 
 export const config = {
   development: false,
