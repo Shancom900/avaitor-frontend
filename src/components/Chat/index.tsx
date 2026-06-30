@@ -9,6 +9,7 @@ import Context from "../../context";
 import "./chat.scss";
 import config from "../../config.json";
 import { displayName } from "../utils";
+import { getAvatarUrl } from "../../utils/interfaces";
 
 export default function PerfectLiveChat() {
   const {
@@ -140,8 +141,8 @@ export default function PerfectLiveChat() {
                     <div className="avatar-block">
                       <img
                         className="avatar"
-                        src={item.avatar || "./avatars/av-5.png"}
-                        alt={item.avatar || "./avatars/av-5.png"}
+                        src={getAvatarUrl(item.avatar)}
+                        alt="avatar"
                       />
                     </div>
                     <div className="msg-block">

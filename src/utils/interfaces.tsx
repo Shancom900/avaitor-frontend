@@ -192,11 +192,12 @@ export interface SeedDetailsType {
     flyDetailID: number;
 }
 
+const basePath = process.env.PUBLIC_URL || "";
 export const unityContext = new UnityContext({
-    loaderUrl: "unity/AirCrash.loader.js",
-    dataUrl: "unity/AirCrash.data.unityweb",
-    frameworkUrl: "unity/AirCrash.framework.js.unityweb",
-    codeUrl: "unity/AirCrash.wasm.unityweb",
+    loaderUrl: `${basePath}/unity/AirCrash.loader.js`,
+    dataUrl: `${basePath}/unity/AirCrash.data.unityweb`,
+    frameworkUrl: `${basePath}/unity/AirCrash.framework.js.unityweb`,
+    codeUrl: `${basePath}/unity/AirCrash.wasm.unityweb`,
 });
 
 export const init_state = {
@@ -293,4 +294,20 @@ export const init_userInfo = {
         betAmount: 20,
         target: 2,
     },
-}
+};
+
+export const getAvatarUrl = (url: string | undefined): string => {
+  const basePath = process.env.PUBLIC_URL || "";
+  if (!url) return `${basePath}/avatars/av-5.png`;
+  if (url.startsWith('/avatars/') || url.startsWith('avatars/') || url.startsWith('./avatars/')) {
+    let cleanPath = url;
+    if (cleanPath.startsWith('./')) {
+      cleanPath = cleanPath.substring(1);
+    }
+    if (!cleanPath.startsWith('/')) {
+      cleanPath = `/${cleanPath}`;
+    }
+    return `${basePath}${cleanPath}`;
+  }
+  return url;
+};

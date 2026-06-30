@@ -3,6 +3,8 @@ import MoonLoader from "react-spinners/MoonLoader";
 import "./bets.scss";
 import { config } from "../../config";
 
+import { getAvatarUrl } from "../../utils/interfaces";
+
 const TopHistory = () => {
   const [type, setType] = React.useState(0);
   const [history, setHistory] = React.useState([]);
@@ -85,7 +87,7 @@ const TopHistory = () => {
                       <img
                         className="avatar"
                         alt="avatar"
-                        src="/avatars/av-5.png"
+                        src={getAvatarUrl("/avatars/av-5.png")}
                       ></img>
                       <div className="username">d***3</div>
                     </div>

@@ -1,6 +1,6 @@
 import React from "react"
 import Context from "../../context";
-import { BettedUserType, UserType } from "../../utils/interfaces";
+import { BettedUserType, UserType, getAvatarUrl } from "../../utils/interfaces";
 // import { useCrashContext } from "../Main/context";
 
 interface AllDataProps {
@@ -18,15 +18,19 @@ const AllData = ({ pre, setPre, allData }: AllDataProps) => {
             <div>
                 <div className="all-bets-block">
                     <div>
-                        <div className="uppercase">ALL BETS</div>
-                        <div>{state.bettedUsers?.length}</div>
-                    </div>
-                    <div className={`previous-hand items-center flex justify-between ${pre ? "click" : ""}`}>
-                        <div className="history-i"></div>
-                        <span className="ml-1 " onClick={() => { setPre(!pre) }}>Previous hand</span>
+                        <div className="all-bets-body">
+                            <span className="bold text-white count-users">{allData?.length}</span>
+                            <div className="btn-group">
+                                <button className={`btn-prev ${pre ? "active" : ""}`} onClick={() => setPre(true)}>
+                                    <span>Previous Hand</span>
+                                </button>
+                                <button className={`btn-prev ${!pre ? "active" : ""}`} onClick={() => setPre(false)}>
+                                    <span>Current Hand</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="spacer"></div>
                 <div className="legend">
                     <span className="user">User</span>
                     <span className="bet">Bet, INR</span>
@@ -40,8 +44,8 @@ const AllData = ({ pre, setPre, allData }: AllDataProps) => {
                         <div className={`bet-item ${user.cashouted ? "celebrated" : ""}`} key={key}>
                             <div className="user">
                                 {user.img ?
-                                    <img className="avatar" src={user.img} alt="avatar" /> :
-                                    <img className="avatar" src="./avatars/av-5.png" alt="avatar" />
+                                    <img className="avatar" src={getAvatarUrl(user.img)} alt="avatar" /> :
+                                    <img className="avatar" src={getAvatarUrl("./avatars/av-5.png")} alt="avatar" />
                                 }
                                 <div className="username">{user.name?.slice(0, 1) + "***" + user.name?.slice(-1)}</div>
                             </div>

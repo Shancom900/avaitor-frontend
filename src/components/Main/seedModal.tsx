@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import CryptoJS from 'crypto-js';
 import Context from "../../context";
+import { getAvatarUrl } from "../../utils/interfaces";
 import { Oval } from "react-loader-spinner";
 
 export const SeedModal = ({ setModal, modalParam }: any) => {
@@ -90,7 +91,7 @@ export const SeedModal = ({ setModal, modalParam }: any) => {
                                                     <div className="player">
                                                         <span>Player N{key + 1}:</span>
                                                         <div className="user">
-                                                            <img className="avatar" src={user.avatar} /> {user.userName.slice(0, 1) + '***' + user.userName.slice(-1)}
+                                                            <img className="avatar" src={getAvatarUrl(user.avatar)} /> {user.userName.slice(0, 1) + '***' + user.userName.slice(-1)}
                                                         </div>
                                                     </div>
                                                     <div className="seed">

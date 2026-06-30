@@ -19,6 +19,7 @@ import axios from "axios";
 import config from "../../config.json";
 import ChatImg from "../../assets/images/chat.svg";
 import { displayName, generateRandomString } from "../utils";
+import { getAvatarUrl } from "../../utils/interfaces";
 
 const settingItems: { label: string; handleType: string }[] = [
   {
@@ -267,10 +268,7 @@ const Menu = ({ setHowto }) => {
                   <div className="avatar">
                     <img
                       className="avatar"
-                      src={`${userInfo?.avatar
-                        ? userInfo?.avatar
-                        : "./avatars/av-5.png"
-                        }`}
+                      src={getAvatarUrl(userInfo?.avatar)}
                       alt="avatar"
                     />
                   </div>
@@ -612,7 +610,7 @@ const Menu = ({ setHowto }) => {
                           <img
                             className={`game-img mr-2 mb-2 ng-star-inserted ${flag ? "active" : ""
                               }`}
-                            src={imgURL}
+                            src={getAvatarUrl(imgURL)}
                             alt={imgURL}
                           />
                         </button>
