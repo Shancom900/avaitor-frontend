@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/avaitor-frontend/static/css/main.e87b3bf4.css",
+    "main.js": "/avaitor-frontend/static/js/main.c1656d08.js",
+    "static/media/rule-1.png": "/avaitor-frontend/static/media/rule-1.adb49c21e32c909e5fb5.png",
+    "static/media/refund.png": "/avaitor-frontend/static/media/refund.7d45c90779532ab8e9e4.png",
+    "static/media/rul-2.png": "/avaitor-frontend/static/media/rul-2.a35c083bbe66679b0891.png",
+    "static/media/rul-3.png": "/avaitor-frontend/static/media/rul-3.68d4e7f083c49bb3cc2f.png",
+    "static/media/propeller.png": "/avaitor-frontend/static/media/propeller.89d2b1eef259d68bdb1a.png",
+    "static/media/logo.svg": "/avaitor-frontend/static/media/logo.1613b7a58d0038417f452598d67f14dc.svg",
+    "static/media/03.svg": "/avaitor-frontend/static/media/03.df52a2225abff3c45bd8.svg",
+    "static/media/02.svg": "/avaitor-frontend/static/media/02.28c2ac208ab6209b3207.svg",
+    "static/media/provabyfire.svg": "/avaitor-frontend/static/media/provabyfire.03dc33c4f08fd46eb265.svg",
+    "static/media/01.svg": "/avaitor-frontend/static/media/01.6f9989e97c5ff4751e93.svg",
+    "static/media/help.svg": "/avaitor-frontend/static/media/help.a5e9113a5b79af7f91bc.svg",
+    "static/media/i-logo.svg": "/avaitor-frontend/static/media/i-logo.75ca8485db43aedebd7a.svg",
+    "static/media/right.svg": "/avaitor-frontend/static/media/right.4c180126bdf647cee8ec.svg",
+    "static/media/dd.svg": "/avaitor-frontend/static/media/dd.0af25ec60c0cc6bad3fa.svg",
+    "static/media/dd-hover.svg": "/avaitor-frontend/static/media/dd-hover.fe4f041d5aa8394306c9.svg",
+    "static/media/share.svg": "/avaitor-frontend/static/media/share.7bed76ca771c2244e4e0.svg",
+    "index.html": "/avaitor-frontend/index.html",
+    "static/media/burger.svg": "/avaitor-frontend/static/media/burger.74c98e26568adb96be49.svg",
+    "static/media/history-i.svg": "/avaitor-frontend/static/media/history-i.5bad38eb5b45dff9b80d.svg",
+    "static/media/user.svg": "/avaitor-frontend/static/media/user.6fb03399250a975dd9c8.svg",
+    "static/media/history-i-hover.svg": "/avaitor-frontend/static/media/history-i-hover.56555b6e6f0c2a62d835.svg",
+    "static/media/plus.svg": "/avaitor-frontend/static/media/plus.aaddfe6c6b9d4cac5859.svg",
+    "static/media/minus.svg": "/avaitor-frontend/static/media/minus.c3bf53ba37b442d40de1.svg",
+    "static/media/remove.svg": "/avaitor-frontend/static/media/remove.be5b1b1928fcc3ab00ac.svg",
+    "static/media/plus-1.svg": "/avaitor-frontend/static/media/plus-1.96ee06357969dea11138.svg"
+  },
+  "entrypoints": [
+    "static/css/main.e87b3bf4.css",
+    "static/js/main.c1656d08.js"
+  ]
+}
