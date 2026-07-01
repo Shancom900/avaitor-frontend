@@ -151,3 +151,109 @@
 .w-50 {
     width: 50%;
 }
+
+.round-history-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #9ea0a3;
+  font-size: 13px;
+  overflow-y: auto;
+
+  .table-header {
+    display: flex;
+    padding: 8px 12px;
+    background: #101112;
+    border-bottom: 1px solid #1c1d1f;
+    font-weight: bold;
+    color: #fff;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    .col {
+      flex: 1;
+      text-align: center;
+      &:first-child {
+        text-align: left;
+      }
+      &:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  .table-body {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 380px;
+
+    .no-data {
+      padding: 20px;
+      text-align: center;
+      color: #666;
+    }
+
+    .table-row {
+      display: flex;
+      padding: 10px 12px;
+      align-items: center;
+      border-bottom: 1px solid #141516;
+      background: rgba(20, 21, 22, 0.5);
+      transition: background 0.2s;
+
+      &:hover {
+        background: #18191b;
+      }
+
+      .col {
+        flex: 1;
+        text-align: center;
+        &:first-child {
+          text-align: left;
+        }
+        &:last-child {
+          text-align: right;
+        }
+      }
+
+      .round-id {
+        color: #fff;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 500;
+      }
+
+      .time {
+        color: #666;
+        font-size: 11px;
+      }
+
+      .multiplier {
+        .history-pill {
+          display: inline-block;
+          padding: 3px 10px;
+          border-radius: 12px;
+          font-weight: bold;
+          font-size: 11px;
+
+          &.low {
+            background: rgba(84, 110, 122, 0.15);
+            color: #b0bec5;
+            border: 1px solid rgba(84, 110, 122, 0.25);
+          }
+          &.mid {
+            background: rgba(145, 46, 252, 0.15);
+            color: #b97eff;
+            border: 1px solid rgba(145, 46, 252, 0.25);
+          }
+          &.high {
+            background: rgba(194, 24, 91, 0.15);
+            color: #ff5c93;
+            border: 1px solid rgba(194, 24, 91, 0.25);
+          }
+        }
+      }
+    }
+  }
+}

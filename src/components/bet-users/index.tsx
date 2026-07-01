@@ -6,6 +6,7 @@ import MyBets from "./my-bets";
 import TopHistory from "./top-history";
 import Context from "../../context";
 import { BettedUserType, UserType } from "../../utils/interfaces";
+import RoundHistoryList from "./round-history";
 
 export default function BetsUsers() {
   const { previousHand, bettedUsers, getMyBets } = React.useContext(Context);
@@ -21,6 +22,7 @@ export default function BetsUsers() {
     { type: "all", value: "All Bets" },
     { type: "my", value: "My Bets", onClick: "myBet" },
     { type: "top", value: "Top" },
+    { type: "history", value: "Round History" },
   ];
 
   const getData = (e) => {
@@ -61,8 +63,10 @@ export default function BetsUsers() {
             <AllData setPre={setPre} pre={pre} allData={allData} />
           ) : headerType === "my" ? (
             <MyBets />
-          ) : (
+          ) : headerType === "top" ? (
             <TopHistory />
+          ) : (
+            <RoundHistoryList />
           )}
         </div>
         {/* <div className="bets-footer">

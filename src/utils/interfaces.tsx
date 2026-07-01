@@ -68,6 +68,8 @@ export interface GameStatusType {
     GameState: string;
     time: number;
     roundId?: number;
+    nextCrashVal?: number;
+    upcomingCrashVal?: number;
 }
 
 export interface GameBetLimit {
@@ -139,6 +141,7 @@ export interface ContextType extends GameBetLimit, UserStatusType, GameStatusTyp
     bettedUsers: BettedUserType[];
     previousHand: UserType[];
     history: number[];
+    fullHistory: any[];
     rechargeState: boolean;
     secure: boolean;
     msgReceived: boolean;

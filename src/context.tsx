@@ -118,12 +118,16 @@ export const Provider = ({ children }: any) => {
     GameState: string;
     time: number;
     roundId?: number;
+    nextCrashVal?: number;
+    upcomingCrashVal?: number;
   }>({
     currentNum: "0",
     currentSecondNum: 0,
     GameState: "",
     time: 0,
     roundId: 1,
+    nextCrashVal: 1.00,
+    upcomingCrashVal: 1.00,
   });
 
   const [bettedUsers, setBettedUsers] = React.useState<BettedUserType[]>([]);
@@ -156,6 +160,7 @@ export const Provider = ({ children }: any) => {
   }, [userInfo]);
   const [previousHand, setPreviousHand] = React.useState<UserType[]>([]);
   const [history, setHistory] = React.useState<number[]>([]);
+  const [fullHistory, setFullHistory] = React.useState<any[]>([]);
   const [userBetState, setUserBetState] = React.useState<UserStatusType>({
     fbetState: false,
     fbetted: false,
@@ -702,6 +707,7 @@ export const Provider = ({ children }: any) => {
           const data = await response.json();
           if (data.status && data.data.length > 0) {
             setHistory(data.data.map((r: any) => r.multiplier));
+            setFullHistory(data.data);
           } else {
             setHistory([1.34, 2.56, 1.02, 4.12, 1.89, 12.45, 1.15, 3.20, 1.50, 8.44]);
           }
@@ -804,12 +810,23 @@ export const Provider = ({ children }: any) => {
                   currentNum: server.GameState === "BET" ? "0" : "1.00",
                   currentSecondNum: 0,
                   time: server.time,
-                  roundId: server.roundId
+                  roundId: server.roundId,
+                  nextCrashVal: server.nextCrashVal,
+                  upcomingCrashVal: server.upcomingCrashVal
                 };
               }
-              // Keep roundId in sync even if state/timing doesn't change
-              if (prev.roundId !== server.roundId) {
-                return { ...prev, roundId: server.roundId };
+              // Keep roundId and crash values in sync even if state/timing doesn't change
+              if (
+                prev.roundId !== server.roundId ||
+                prev.nextCrashVal !== server.nextCrashVal ||
+                prev.upcomingCrashVal !== server.upcomingCrashVal
+              ) {
+                return {
+                  ...prev,
+                  roundId: server.roundId,
+                  nextCrashVal: server.nextCrashVal,
+                  upcomingCrashVal: server.upcomingCrashVal
+                };
               }
               return prev;
             });
@@ -875,6 +892,7 @@ export const Provider = ({ children }: any) => {
         bettedUsers,
         previousHand,
         history,
+        fullHistory,
         rechargeState,
         secure,
         myUnityContext: sharedUnityContext,

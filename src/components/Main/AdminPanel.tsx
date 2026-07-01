@@ -13,7 +13,9 @@ export default function AdminPanel() {
     isOverridePersistent,
     setIsOverridePersistent,
     userInfo,
-    updateUserInfo
+    updateUserInfo,
+    nextCrashVal,
+    upcomingCrashVal
   } = React.useContext(Context);
 
   const [isOpen, setIsOpen] = React.useState(false);
@@ -90,18 +92,23 @@ export default function AdminPanel() {
                 {GameState || "IDLE"}
               </div>
 
-              <div className="status-label">Multiplier:</div>
+              <div className="status-label">Live Multiplier:</div>
               <div className="status-value current-mult">
                 {currentTarget?.toFixed(2)}x
               </div>
 
-              <div className="status-label">Next Crash:</div>
-              <div className="status-value next-crash">
-                {adminCrashOverride !== null && adminCrashOverride !== undefined ? (
-                  <span className="override-active">{adminCrashOverride.toFixed(2)}x</span>
-                ) : (
-                  <span className="fallback-random">Random X</span>
-                )}
+              <div className="status-label">Current Round Target:</div>
+              <div className="status-value target-val">
+                <span style={{ color: "#2de359", fontWeight: "bold" }}>
+                  {nextCrashVal !== undefined ? `${nextCrashVal.toFixed(2)}x` : "1.00x"}
+                </span>
+              </div>
+
+              <div className="status-label">Next Round Target:</div>
+              <div className="status-value target-val">
+                <span style={{ color: "#e3ad2d", fontWeight: "bold" }}>
+                  {upcomingCrashVal !== undefined ? `${upcomingCrashVal.toFixed(2)}x` : "1.00x"}
+                </span>
               </div>
             </div>
           </div>
