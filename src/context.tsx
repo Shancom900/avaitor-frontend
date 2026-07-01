@@ -112,7 +112,13 @@ export const Provider = ({ children }: any) => {
     unityLoading: false,
     currentProgress: 0,
   });
-  const [gameState, setGameState] = React.useState({
+  const [gameState, setGameState] = React.useState<{
+    currentNum: string;
+    currentSecondNum: number;
+    GameState: string;
+    time: number;
+    roundId?: number;
+  }>({
     currentNum: "0",
     currentSecondNum: 0,
     GameState: "",
