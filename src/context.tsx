@@ -117,6 +117,7 @@ export const Provider = ({ children }: any) => {
     currentSecondNum: 0,
     GameState: "",
     time: 0,
+    roundId: 1,
   });
 
   const [bettedUsers, setBettedUsers] = React.useState<BettedUserType[]>([]);
@@ -796,8 +797,13 @@ export const Provider = ({ children }: any) => {
                   GameState: server.GameState,
                   currentNum: server.GameState === "BET" ? "0" : "1.00",
                   currentSecondNum: 0,
-                  time: server.time
+                  time: server.time,
+                  roundId: server.roundId
                 };
+              }
+              // Keep roundId in sync even if state/timing doesn't change
+              if (prev.roundId !== server.roundId) {
+                return { ...prev, roundId: server.roundId };
               }
               return prev;
             });

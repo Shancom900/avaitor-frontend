@@ -67,6 +67,7 @@ export interface GameStatusType {
     currentSecondNum: number;
     GameState: string;
     time: number;
+    roundId?: number;
 }
 
 export interface GameBetLimit {

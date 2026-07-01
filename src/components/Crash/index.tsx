@@ -9,7 +9,7 @@ import Context from "../../context";
 let currentFlag = 0;
 
 export default function WebGLStarter() {
-	const { GameState, currentNum, time, unityState, myUnityContext,setCurrentTarget } = React.useContext(Context)
+	const { GameState, currentNum, time, unityState, myUnityContext, setCurrentTarget, roundId } = React.useContext(Context)
 	const [target, setTarget] = React.useState(1);
 	const [waiting, setWaiting] = React.useState(0);
 	const [flag, setFlag] = React.useState(1);
@@ -158,6 +158,7 @@ export default function WebGLStarter() {
 						visibility: unityState ? 'visible' : 'hidden'
 					}} 
 				/>
+				<div className="round-id-badge">Round #{roundId || 1}</div>
 				<div 
 					className={`plane-multiplier ${GameState === "PLAYING" ? 'visible' : ''}`}
 					ref={planeMultiplierRef}
